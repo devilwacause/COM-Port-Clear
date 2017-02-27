@@ -1,0 +1,62 @@
+****DISCLAIMER****
+The application provided in this repository uses administrator rights to make changes to the Windows Registry.  Changes to the Windows Registry can negatively impact a computer, in a worse case scenario, leaving it unable to boot.  It is strongly recommended to make a backup of the entire registry manually before running this application, as well as making an export of the COM Name Arbiter registry value seperately.
+
+This application has been tested on my own computer and found to have no negative impact that I have been able to discern.  (Windows 10)  By using this application you take full responsibility for any negative affects or unforseen impacts this may have on your computer.
+
+Users may feel free to edit the code files provided to meet their own needs, however they do so at their own risk, and own responsibility.  The creator of this application/repository holds no responsibility for any negative consequences of using said application.
+
+This project if run will require Administrator rights.  As such navigate to the bin/Debug folder in the package and right click on the 
+application selecting - "Run as Administrator."
+
+Application uses:
+
+Export the Current COM Name Arbiter registry Value to a .reg file
+Import a registry file to the registry (does not specifically have to be the .reg file created during export, can be any .reg file).
+Clear the COM Name Arbiter registry value to wipe all active COM Ports.
+
+
+
+
+Purpose of this application:
+
+
+The FTDI SerialToUSB converter drivers can occasionally not close COM ports in Windows.  I have found this to be the case especially when using a USB hub for the connection of a USB>Serial device (such as arduino) to a PC.
+
+This creates a scenario where slowly the COM port # will increase as devices are connected and disconnected from a computer.  Overtime, the port # may rise to a point that other devices cannot communicate with the software they were designed for as the port # is outside of the range the application was designed for.
+
+Restarting the computer typically does not solve this COM port issue.  And to date I have only found two solutions for this problem.
+
+Quick: Edit the Registry
+
+The application provided will edit the registry to remove all COM port assignments on Windows at that point.
+
+The registry can also be manually editted for those that feel secure in doing so.
+
+1.) Click start → Run → type regedit and click OK button
+
+2.) Navigate to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\COM Name Arbiter
+
+3.) On the right panel, you can see the key ComDB. Right-click it and click modify
+
+4.) In value Data section select all and delete reset to zero (0)
+
+Its 32 bytes with 8 bits in each byte in hexadecimal representation. A bit of value 1 makes a port number (1...256) reserved. The first
+8 ports are in two leftmost hexadecimal values, bits ascending from lowest to highest right to left, the next 8 ports are in the second
+two and so on: hex F3 24 would be binary 1111 0011 0010 0100, which means that following ports are used: 1, 2, 5, 6, 7, 8 (1111 0011) 
+and 11, 14 (0010 0100).
+
+5.) Close the registry editor and then restart your computer. If you set the value to 0 all COM ports are free.
+
+*********You may need to reinstall any USB-to-serial converter.**********
+
+
+
+Time Consuming: Uninstall the disconnected devices
+
+From Command Prompt enter the following: 
+
+set DEVMGR_SHOW_NONPRESENT_DEVICES=1
+devmgmt.msc
+
+Disconnected devices will be displayed in light grey.  Right click the device and uninstall.  Repeat process for all devices to be
+uninstalled.
