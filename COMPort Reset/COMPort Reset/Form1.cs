@@ -30,6 +30,12 @@ namespace COMPort_Reset
 
         /* function not expressly needed for v0.1, plan on expanding at later date so placed in own function */
 
+        public void reStart()
+        {
+            Shutdown.Restart();
+
+        }
+
         public static bool IsAdministrator()
         {
             
@@ -128,7 +134,7 @@ namespace COMPort_Reset
                     goto Import;
                 case DialogResult.Cancel:
                     goto Exit;
-                    break;
+                   
             }
 
         Import:
@@ -211,6 +217,25 @@ namespace COMPort_Reset
 
             /* End COM Clear */
 
+            /* Prompt for Restart */
+
+            var button = MessageBoxButtons.YesNoCancel;
+            string msg = "A restart is required to complete the COM Reset.  Would you like to Restart Now?";
+            string caption = "Restart Required";
+
+            
+            switch (MessageBox.Show(msg, caption, button))
+            {
+                case DialogResult.Yes:
+                    reStart();
+                    break;
+                case DialogResult.No:
+                    break;
+                case DialogResult.Cancel:
+                    break;
+
+            /* End Prompt for Restart */
+            }
         }
 
 
