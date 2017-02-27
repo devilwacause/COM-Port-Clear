@@ -1,0 +1,10 @@
+c:\users\james fuller\documents\visual studio 2012\Projects\COMPort Reset\COMPort Reset\bin\Debug\COMPort Reset.exe.config
+c:\users\james fuller\documents\visual studio 2012\Projects\COMPort Reset\COMPort Reset\bin\Debug\COMPort Reset.exe
+c:\users\james fuller\documents\visual studio 2012\Projects\COMPort Reset\COMPort Reset\bin\Debug\COMPort Reset.pdb
+c:\users\james fuller\documents\visual studio 2012\Projects\COMPort Reset\COMPort Reset\obj\Debug\COMPort_Reset.Form1.resources
+c:\users\james fuller\documents\visual studio 2012\Projects\COMPort Reset\COMPort Reset\obj\Debug\COMPort_Reset.Form2.resources
+c:\users\james fuller\documents\visual studio 2012\Projects\COMPort Reset\COMPort Reset\obj\Debug\COMPort_Reset.Properties.Resources.resources
+c:\users\james fuller\documents\visual studio 2012\Projects\COMPort Reset\COMPort Reset\obj\Debug\COMPort Reset.csproj.GenerateResource.Cache
+c:\users\james fuller\documents\visual studio 2012\Projects\COMPort Reset\COMPort Reset\obj\Debug\COMPort Reset.exe
+c:\users\james fuller\documents\visual studio 2012\Projects\COMPort Reset\COMPort Reset\obj\Debug\COMPort Reset.pdb
+c:\users\james fuller\documents\visual studio 2012\Projects\COMPort Reset\COMPort Reset\obj\Debug\COMPort Reset.csprojResolveAssemblyReference.cache
